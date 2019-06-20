@@ -7,6 +7,7 @@ from arcpy import env
 
 # Set workspace
 env.workspace = r"E:\earthEngine\million_plus\LULC\tester"
+path = r"E:\earthEngine\million_plus\LULC\tester"
 '''
 # Set local variables
 in_features = "majorrds.shp"
