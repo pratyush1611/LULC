@@ -1,3 +1,4 @@
+#!python2
 #Description: to extract from lulc images to csv for furthur analyses
 
 # Import system modules
