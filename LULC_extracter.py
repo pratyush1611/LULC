@@ -36,7 +36,7 @@ def clipper_func():
         if(file.endswith(".tif")):
             print(file)
             #out_feature_class = r"E:\earthEngine\million_plus\LULC\tester\clipped"+file.strip(".tif")+"_clipped.tif"
-            in_features = "kota_1988_lulc_cnstnt.tif"
+            in_features = file
             clip_features = "kota_plng_bnd.shp"
             out_feature_class = "/clipped_files/" + in_features[:-5]+"_clipped"
             arcpy.Clip_management(in_features,"#",out_feature_class + ".tif", clip_features,"#" ,"ClippingGeometry", "NO_MAINTAIN_EXTENT")
