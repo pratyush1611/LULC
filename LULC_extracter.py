@@ -46,6 +46,15 @@ def value_extractinator():
         #//band =  ds.GetRasterBand(1)
         array = np.array(ds)#band.ReadAsArray())
         values = np.unique(array)
+        # Projection
+        raster.GetProjection()
+
+        # Dimensions
+        raster.RasterXSize
+        raster.RasterYSize
+
+        # Number of bands
+        raster.RasterCount        
         print(values)
         print("im done here")
 
