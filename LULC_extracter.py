@@ -3,13 +3,13 @@
 
 # Import system modules
 import os
-import arcpy
-from arcpy import env
+#import arcpy
+#from arcpy import env
 import numpy as np
 from osgeo import gdal
 
 # Set workspace
-env.workspace = r"E:\earthEngine\million_plus\LULC\tester"
+#env.workspace = r"E:\earthEngine\million_plus\LULC\tester"
 path = r"E:\earthEngine\million_plus\LULC\tester"
 '''
 def read_folder(path):
@@ -25,6 +25,7 @@ def read_folder(path):
     return [lst_path, file_name]
 '''
 ##//////////clipper func
+'''
 def clipper_func():
 
     for file in os.listdir(env.workspace):
@@ -34,31 +35,16 @@ def clipper_func():
             in_features = file
             clip_features = "kota_plng_bnd.shp"
             out_feature_class = "/clipped_files/" + in_features[:-5]+"_clipped"
-            arcpy.Clip_management(in_features,"#",out_feature_class + ".tif", clip_features,"#" ,"ClippingGeometry", "NO_MAINTAIN_EXTENT")
+            arcpy.Clip_management(in_features,"#",out_feature_class + ".tif",
+                                    clip_features,"#" ,"ClippingGeometry",
+                                    "NO_MAINTAIN_EXTENT")
             print(file + "has been clipped")
 
     print("clipper has come to an end")
+'''
 
-def value_extractinator():
-        raster_file =0
-
-        ds = gdal.Open(env.workspace + "/clipped_files/kota_1990_lulc_cnstn_clipped.tif")
-        #//band =  ds.GetRasterBand(1)
-        array = np.array(ds)#band.ReadAsArray())
-        values = np.unique(array)
-        # Projection
-        raster.GetProjection()
-
-        # Dimensions
-        raster.RasterXSize
-        raster.RasterYSize
-
-        # Number of bands
-        raster.RasterCount        
-        print(values)
-        print("im done here")
 
 print("code started")
 #clipper_func()
-value_extractinator()
+
 print("code ended")
