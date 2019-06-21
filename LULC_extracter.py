@@ -5,18 +5,13 @@
 import os
 import arcpy
 from arcpy import env
+import numpy as np
+from osgeo import gdal
 
 # Set workspace
 env.workspace = r"E:\earthEngine\million_plus\LULC\tester"
 path = r"E:\earthEngine\million_plus\LULC\tester"
 '''
-# Set local variables
-in_features = "majorrds.shp"
-clip_features = "study_quads.shp"
-out_feature_class = "C:/output/studyarea.shp"
-xy_tolerance = ""
-
-
 def read_folder(path):
     lst_path = list()
     file_name = list()
@@ -42,9 +37,19 @@ def clipper_func():
             arcpy.Clip_management(in_features,"#",out_feature_class + ".tif", clip_features,"#" ,"ClippingGeometry", "NO_MAINTAIN_EXTENT")
             print(file + "has been clipped")
 
-
     print("clipper has come to an end")
 
+def value_extractinator():
+        raster_file =0
+
+        ds = gdal.Open(env.workspace + "/clipped_files/kota_1990_lulc_cnstn_clipped.tif")
+        #//band =  ds.GetRasterBand(1)
+        array = np.array(ds)#band.ReadAsArray())
+        values = np.unique(array)
+        print(values)
+        print("im done here")
+
 print("code started")
-clipper_func()
+#clipper_func()
+value_extractinator()
 print("code ended")
