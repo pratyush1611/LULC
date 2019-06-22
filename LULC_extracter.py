@@ -6,10 +6,10 @@ import os
 import arcpy
 from arcpy import env
 import numpy as np
-from osgeo import gdal
+#from osgeo import gdal
 
 # Set workspace
-env.workspace = r"E:\earthEngine\million_plus\LULC\newadata"
+env.workspace = r"E:\earthEngine\million_plus\LULC\newdata"
 path = r"E:\earthEngine\million_plus\LULC\newdata"
 '''
 def read_folder(path):
