@@ -1,6 +1,7 @@
 #!python3
 import os
 import numpy as np
+import pandas as pd
 from osgeo import gdal
 path = r"E:\earthEngine\million_plus\LULC\tester\try"
 def value_extractinator():
@@ -15,8 +16,13 @@ def value_extractinator():
         rasterArray = band.ReadAsArray()
         unique_array ,count_array = (np.unique(rasterArray,return_index=False, return_inverse=False, return_counts=True, axis=None))
         array_unq_cnt = zip(unique_array,count_array)
-        for item in array_unq_cnt:
-            print(i[0] + " is " + i[1}+" times"])
+        data_years = pd.DataFrame(data=[], index=["nodata","urban","green","water","barren"], columns=[])
+
+        c1992 = np.array([123,345,567,321])
+        data_years[1990] = count_array
+        for i in array_unq_cnt:
+            print(i[0], i[1])
+        return(data_years)
         '''
         # Compute statistics if needed
         if band.GetMinimum() is None or band.GetMaximum()is None:
@@ -45,4 +51,4 @@ def value_extractinator():
         #///////////////////////////////////
         #////////////////
         print("im done here")
-value_extractinator()
+print(value_extractinator())
