@@ -36,7 +36,7 @@ def clipper_func():
             clip_features = "kota_plng_bnd.shp"
             out_feature_class = "/clipped_files/" + in_features[:-4]+"_clipped"
             arcpy.Clip_management(in_features,"#",out_feature_class + ".tif",
-                                    clip_features,"#" ,"ClippingGeometry",
+                                    clip_features,"NULL" ,"ClippingGeometry",
                                     "NO_MAINTAIN_EXTENT")
             print(file + "has been clipped")
 
