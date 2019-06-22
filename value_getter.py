@@ -4,9 +4,9 @@ import re
 import numpy as np
 import pandas as pd
 from osgeo import gdal
-path = r"E:\earthEngine\million_plus\LULC\newdata\clipped_files"
+
 ################################/////////////////////////  extracter function
-def value_extractinator():
+def value_extractinator(path):
     data_years = pd.DataFrame(data=[], index=["nodata","urban","green","water","barren"], columns=[])
     for file in os.listdir(path):
         if (file.endswith(".tif")):
@@ -39,5 +39,8 @@ def value_extractinator():
     print("im done here")
     return(landcover)
 
+path = input("Enter the path of your clipped images folder: ")
+assert os.path.exists(path), "I did not find the file at, " + str(path)
+#path = r"E:\earthEngine\million_plus\LULC\newdata\clipped_files"
 
-print(value_extractinator())
+print(value_extractinator(path))
