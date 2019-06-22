@@ -3,14 +3,14 @@
 
 # Import system modules
 import os
-#import arcpy
-#from arcpy import env
+import arcpy
+from arcpy import env
 import numpy as np
 from osgeo import gdal
 
 # Set workspace
-#env.workspace = r"E:\earthEngine\million_plus\LULC\tester"
-path = r"E:\earthEngine\million_plus\LULC\tester"
+env.workspace = r"E:\earthEngine\million_plus\LULC\newadata"
+path = r"E:\earthEngine\million_plus\LULC\newdata"
 '''
 def read_folder(path):
     lst_path = list()
@@ -25,7 +25,7 @@ def read_folder(path):
     return [lst_path, file_name]
 '''
 ##//////////clipper func
-'''
+
 def clipper_func():
 
     for file in os.listdir(env.workspace):
@@ -34,17 +34,17 @@ def clipper_func():
             #out_feature_class = r"E:\earthEngine\million_plus\LULC\tester\clipped"+file.strip(".tif")+"_clipped.tif"
             in_features = file
             clip_features = "kota_plng_bnd.shp"
-            out_feature_class = "/clipped_files/" + in_features[:-5]+"_clipped"
+            out_feature_class = "/clipped_files/" + in_features[:-4]+"_clipped"
             arcpy.Clip_management(in_features,"#",out_feature_class + ".tif",
                                     clip_features,"#" ,"ClippingGeometry",
                                     "NO_MAINTAIN_EXTENT")
             print(file + "has been clipped")
 
     print("clipper has come to an end")
-'''
+
 
 
 print("code started")
-#clipper_func()
+clipper_func()
 
 print("code ended")
