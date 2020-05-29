@@ -54,5 +54,26 @@ var exporter = function(planning_bound, img, imgtyp, img_nm)
        region: planning_bound
      });
    break;
-
+   break;
+ case 3:
+   //NDVI
+   Export.image.toDrive(
+     {
+       image: img[0],
+       description: img_nm + '_ndvi',
+       folder: 'NDVI_'+placename,
+       scale: 30,
+       region: planning_bound
+     });
+  //NDBI   
+   Export.image.toDrive(
+     {
+       image: img[1],
+       description: img_nm + '_ndbi',
+       folder: 'NDBI_'+placename,
+       scale: 30,
+       region: planning_bound
+     });     
+   break;   
+     
 }; //eof exporterinator
