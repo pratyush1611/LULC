@@ -3,7 +3,7 @@
 var NDinator = function(plngbnd , image)
 {
   var ndvi,  ndbi;
-  if (image.id().getInfo().toString() == "LC")
+  if (image.id().getInfo().toString().slice(0,2) == "LC")
   {
     ndvi = image.normalizedDifference(['B5', 'B4']);
     ndbi = image.normalizedDifference(['B6', 'B5']);
